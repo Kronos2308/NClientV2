@@ -79,6 +79,7 @@ public class SimpleGallery extends GenericGallery {
         id = Integer.parseInt(temp.substring(3, temp.length() - 1));
         a = e.getElementsByTag("img").first();
         temp = a.hasAttr("data-src") ? a.attr("data-src") : a.attr("src");
+        //temp = a.attr("src");
         mediaId = Integer.parseInt(temp.substring(temp.indexOf("galleries") + 10, temp.lastIndexOf('/')));
         String extension = temp.substring(temp.lastIndexOf('.') + 1);
         thumbnail = Page.charToExt(extension.charAt(0));//thumbnail = Page.charToExt(temp.charAt(temp.length() - 3));
@@ -178,9 +179,9 @@ public class SimpleGallery extends GenericGallery {
 
     public Uri getThumbnail() {
         if (thumbnail == ImageExt.GIF) {
-            return Uri.parse(String.format(Locale.US, "https://i." + Utility.getHost() + "/galleries/%d/1.gif", mediaId));
+            return Uri.parse(String.format(Locale.US, "https://i1." + Utility.getHost() + "/galleries/%d/1.gif", mediaId));
         }
-        return Uri.parse(String.format(Locale.US, "https://t." + Utility.getHost() + "/galleries/%d/thumb.%s", mediaId, extToString(thumbnail)));
+        return Uri.parse(String.format(Locale.US, "https://t1." + Utility.getHost() + "/galleries/%d/thumb.%s", mediaId, extToString(thumbnail)));
     }
 
     public int getMediaId() {
