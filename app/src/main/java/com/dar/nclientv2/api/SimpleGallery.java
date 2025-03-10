@@ -81,6 +81,9 @@ public class SimpleGallery extends GenericGallery {
         temp = a.hasAttr("data-src") ? a.attr("data-src") : a.attr("src");
         //temp = a.attr("src");
         mediaId = Integer.parseInt(temp.substring(temp.indexOf("galleries") + 10, temp.lastIndexOf('/')));
+        if (temp.endsWith(".jpg.webp")) {
+            temp = temp.substring(0, temp.length() - 5); // Quita ".webp"
+        }
         String extension = temp.substring(temp.lastIndexOf('.') + 1);
         thumbnail = Page.charToExt(extension.charAt(0));//thumbnail = Page.charToExt(temp.charAt(temp.length() - 3));
         title = e.getElementsByTag("div").first().text();

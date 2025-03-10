@@ -305,12 +305,12 @@ public class GalleryData implements Parcelable {
 
     private void readPagePath(String path) throws IOException {
         System.out.println(path);
-        StringReader reader = new StringReader(path + "e");//flag for the end
+        StringReader reader = new StringReader(path + "*");//flag for the end
         int absolutePage = 0;
         int actualChar;
         int pageOfType = 0;
         boolean specialImages = true;//compability variable
-        while ((actualChar = reader.read()) != 'e') {
+        while ((actualChar = reader.read()) != '*') {
             switch (actualChar) {
                 case 'p':
                 case 'j':
